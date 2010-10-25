@@ -1,0 +1,1 @@
+f90 task_1.1.for ../lib/Geopack_2005.for ../lib/T89c.for -o task_1.1 && ./task_1.1 && rm *.o

@@ -1,0 +1,1 @@
+rm -f *~ compare_* task_1.1 task_1.1.exe
