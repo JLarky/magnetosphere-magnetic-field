@@ -1,19 +1,3 @@
-c--------------------------------------------------------------------------------
-c
-c  The small main program below is an example of how to compute field
-c   components with T89C.
-c    See GEOPACK.DOC for an example of field line tracing.
-c
-c     programm commented by ! is simple [...]
-!      dimension parmod(10)
-!  1   print *, '  enter x,y,z,ps,iopt'
-!      read*, x,y,z,ps,iopt
-!      call t89c(iopt,parmod,ps,x,y,z,bx,by,bz)
-!      print *, bx,by,bz
-!      goto 1
-!      end
-
-c--------------------------------------------------------------------------------
 
 C
       SUBROUTINE T89C(IOPT,PARMOD,PS,X,Y,Z,BX,BY,BZ)
