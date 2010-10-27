@@ -51,6 +51,5 @@ c	output: HXGSM,HYGSM,HZGSM --- internas sources
 c	compare full field
 	write (2,'(6f12.4)') HXGSM+bx,HYGSM+by,HZGSM+bz, BXGSM,BYGSM,BZGSM
 c       compare extraterresial sources only
-	write (3,'(6f12.4)') HXGSM,HYGSM,HZGSM,
-     _	  BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
+	write (3,'(6f12.4)') bx,by,bz, BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
 	end subroutine compare
