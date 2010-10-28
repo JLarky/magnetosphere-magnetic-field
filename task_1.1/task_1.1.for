@@ -14,7 +14,7 @@
 	end program
 
         subroutine run_compare(Kp_interval)
-	L=1;
+	L=0;
 123     format(i2,1x,i2,1x,i4,1x, i2,1x,i2,1x,i2,4x,6f23.8)
 	do
 	read (1,123,end=34,err=35) IDAY,MON,IYEAR,IHOUR,MIN,ISEC,XGSM,YGSM,
@@ -51,6 +51,5 @@ c	output: HXGSM,HYGSM,HZGSM --- internas sources
 c	compare full field
 	write (2,'(6f12.4)') HXGSM+bx,HYGSM+by,HZGSM+bz, BXGSM,BYGSM,BZGSM
 c       compare extraterresial sources only
-	write (3,'(6f12.4)') HXGSM,HYGSM,HZGSM,
-     _	  BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
+	write (3,'(6f12.4)') bx,by,bz, BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
 	end subroutine compare

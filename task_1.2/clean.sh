@@ -1,0 +1,1 @@
+rm -f *~ compare.dat task_1.2 task_1.2.exe
