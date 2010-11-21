@@ -9,13 +9,13 @@ Kp = '4-,4,4+'
 set output 'external_5.png'
 load 'subplot.gnuplot'
 
-filename = './compare_full_1.dat'
-set output 'full_1.png'
+filename = './compare_total_1.dat'
+set output 'total_1.png'
 set terminal png size 600,700
 set style function lines
 set origin 0.0, 0.0
 set multiplot
-set title "Full field"
+set title "Total field"
 set size 1,0.35
 set origin 0.0,0.0
 plot [][-3000:1300] filename u 0:3 w l t 'model Bz', filename u 0:6 w l t 'data'

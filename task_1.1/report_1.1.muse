@@ -35,7 +35,7 @@ c	output: bx,by,bz --- extraterresial sources
 c	output: HXGSM,HYGSM,HZGSM --- internas sources
 	call IGRF_GSM (XGSM,YGSM,ZGSM,HXGSM,HYGSM,HZGSM)
 
-c	compare full field
+c	compare total field
 	write (2,'(6f12.4)') HXGSM+bx,HYGSM+by,HZGSM+bz, BXGSM,BYGSM,BZGSM
 c       compare extraterresial sources only
 	write (3,'(6f12.4)') bx,by,bz, BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
@@ -50,10 +50,11 @@ c       compare extraterresial sources only
 компонентах магнитного поля со спутников возможно объясняются слишком
 маленьким расстоянием до Земли в эти моменты времени.
 
-Так же видно, что данные лучше согласованы с случаем IOPT=5, а не IOPT=1.
+Так же видно, что данные лучше согласованы с случаем IOPT=1, а не
+IOPT=5, что и следовало ожидать.
 
 [[external_1.png][IOPT = 1]]
 
 [[external_5.png][IOPT = 5]]
 
-[[full_1.png][Полное поле]]
+[[total_1.png][Полное поле]]

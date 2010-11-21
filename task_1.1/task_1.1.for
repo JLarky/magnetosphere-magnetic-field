@@ -3,7 +3,7 @@
 	do Kp_interval = 1, 6 ! all available Kp-indexes. See T89c for meaning of IOPT parameter
 	  write (filename,'(I1)') Kp_interval !filename = Kp_interval;
           open (unit=1, file='../data/polar.dat',status='OLD')
-	  open (unit=2, file='compare_full_'//filename//'.dat')
+	  open (unit=2, file='compare_total_'//filename//'.dat')
 	  open (unit=3, file='compare_ext_'//filename//'.dat')
 	  ! input unit=1, output unit=2,3
 	  call run_compare(Kp_interval)
@@ -21,6 +21,9 @@
      _    ZGSM, BXGSM,BYGSM,BZGSM
 	L=L+1
 c	iday день с начала года
+	if (MON.eq.2) then ! february
+	  IDAY = IDAY + 31
+        end if
 	call compare(IYEAR,IDAY,IHOUR,MIN,ISEC,XGSM,YGSM,ZGSM,
      _    BXGSM,BYGSM,BZGSM, Kp_interval)
 	end do
@@ -48,8 +51,9 @@ c	output: bx,by,bz --- extraterresial sources
 c	output: HXGSM,HYGSM,HZGSM --- internas sources
 	call IGRF_GSM (XGSM,YGSM,ZGSM,HXGSM,HYGSM,HZGSM)
 
-c	compare full field
+c	compare total field
 	write (2,'(6f12.4)') HXGSM+bx,HYGSM+by,HZGSM+bz, BXGSM,BYGSM,BZGSM
 c       compare extraterresial sources only
-	write (3,'(6f12.4)') bx,by,bz, BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
+	write (3,'(6f12.4)') bx,by,bz,
+     _	  BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
 	end subroutine compare
