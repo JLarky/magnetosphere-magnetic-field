@@ -1,16 +1,28 @@
+#!/usr/bin/gnuplot
 filename = './compare_ext_1.dat'
-Kp = ''
+Kp = '0,0+'
+set output 'external_1.png'
+load 'subplot.gnuplot'
 
-set terminal postscript eps enhanced size 3,4
-set output 'bla.eps'
+filename = './compare_ext_5.dat'
+Kp = '4-,4,4+'
+set output 'external_5.png'
+load 'subplot.gnuplot'
+
+filename = './compare_full_1.dat'
+set output 'full_1.png'
+set terminal png size 600,700
 set style function lines
 set origin 0.0, 0.0
 set multiplot
-set size 1,0.3
+set title "Full field"
+set size 1,0.35
 set origin 0.0,0.0
-plot [][-70:100] filename u 0:1 w l, filename u 0:4 w l
+plot [][-3000:1300] filename u 0:3 w l t 'model Bz', filename u 0:6 w l t 'data'
 set origin 0.0,0.33
-plot [][-70:100] filename u 0:2 w l, filename u 0:5 w l
+plot [][-3000:1300] filename u 0:2 w l t 'model By', filename u 0:5 w l t 'data'
 set origin 0.0,0.66
-plot [][-70:100] filename u 0:3 w l, filename u 0:6 w l
+plot [][-3000:1300] filename u 0:1 w l t 'model Bx', filename u 0:4 w l t 'data'
 unset multiplot
+
+
