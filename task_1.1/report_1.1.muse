@@ -27,31 +27,41 @@
      _  SPS, CPS,SHI,CHI,HI,PSI,XMUT,A11,A21,A31,A12,A22,A32,A13,A23,A33,
      _  DS3,CGST,SGST,BA(6)
         CALL RECALC(IYEAR,IDAY,IHOUR,MIN,ISEC)
-	ps = psi ! from recalc
-	iopt = Kp_interval
+        ps = psi ! from recalc
+        iopt = Kp_interval
 
-c	output: bx,by,bz --- extraterresial sources
+c       output: bx,by,bz --- extraterresial sources
         call t89c(iopt,parmod,ps,XGSM,YGSM,ZGSM,bx,by,bz)
-c	output: HXGSM,HYGSM,HZGSM --- internas sources
-	call IGRF_GSM (XGSM,YGSM,ZGSM,HXGSM,HYGSM,HZGSM)
+c       output: HXGSM,HYGSM,HZGSM --- internas sources
+        call IGRF_GSM (XGSM,YGSM,ZGSM,HXGSM,HYGSM,HZGSM)
 
-c	compare total field
-	write (2,'(6f12.4)') HXGSM+bx,HYGSM+by,HZGSM+bz, BXGSM,BYGSM,BZGSM
+c       compare total field
+        write (2,'(6f12.4)') HXGSM+bx,HYGSM+by,HZGSM+bz, BXGSM,BYGSM,BZGSM
 c       compare extraterresial sources only
-	write (3,'(6f12.4)') bx,by,bz, BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
-	end subroutine compare
+        write (3,'(6f12.4)') bx,by,bz, BXGSM-HXGSM,BYGSM-HYGSM,BZGSM-HZGSM
+        end subroutine compare
 
 </example>
 
 * Результат
 
 Видно, что хотя модельное поле и довольно сильно отличается от поля из
-данных, но это отличие не заметно на графике полного поля. А скачки в
-компонентах магнитного поля со спутников возможно объясняются слишком
-маленьким расстоянием до Земли в эти моменты времени.
+данных, но это отличие не заметно на графике полного поля. Так же
+видно, что данные лучше согласованы с случаем IOPT=1, а не IOPT=5, что
+и следовало ожидать.
 
-Так же видно, что данные лучше согласованы с случаем IOPT=1, а не
-IOPT=5, что и следовало ожидать.
+** Скачки в внешнем поле
+
+А скачки в компонентах магнитного поля со спутников по-видимому
+объясняются следующим эффектом. Спутник измеряет магнитное поле в
+своей собственнной системе координат, при переводе в GSM (или какую-то
+другую связанную с Землёй систему координат) нужно знать ориентацию
+спутника, котоорая определяется с некоторой ошибкой. Ошибка в
+определении компонент будет пропорциональна величине поля.  Хотя
+ошибка определения ориентации и не превышает нескольких градусов, но
+при приближении к Земле модуль поля увеличивается до нескольких тысяч
+nT, и во время, когда спутник подлетал близко к Земле мы видим
+максимальные скачки компонент поля.
 
 [[external_1.png][IOPT = 1]]
 
