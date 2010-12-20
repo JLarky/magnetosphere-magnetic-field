@@ -1,0 +1,64 @@
+#title Задание 1-5.
+#author Лапин Ярослав
+
+* Определение зон повышенной корпускулярной радиации в области захвата энергичных частиц. Сравнение с результатами расчета по моделям геомагнитного поля.
+
+        Выполнил Лапин Ярослав. 20/12/2010.
+
+* Исходные данные
+Данные были получены со спутника NOAA за 12-16 августа 2002. На сайте
+[[http://cdaweb.gsfc.nasa.gov/istp_public/][cdaweb.gsfc.nasa.gov]] нужно было выбрать спутник NOAA и Instrument ---
+Particles, и выбрать:
+ - Fractional Day of Year 
+ - Latitude
+ - Longitude
+ - MEPED Count Rates for 0 Deg. telescopes, 4 proton and 2 electron
+   energy bands (counts_0dg)"
+
+* Обработка данных
+Файл был переведён в формат пригодный для дальнейшей обработки
+<example>
+	program task5
+	real::lat,long,day,kev1,kev2,kev3,kev4,kev5,kev6
+
+        open (unit=1, file='../data/NOAA14_MEPED1MIN.dat',status='OLD')
+        open (unit=2, file='data.dat')
+
+	L=0;
+123    format(i2,1x,i2,1x,i4,1x,i2,1x,i2,1x,f6.3,3f14.5,15f23.6)
+	do
+	read (1,123,end=34,err=35) IDAY,MON,IYEAR,IHOUR,MIN,ISEC,DAY,
+     _		lat,long,notusable,kev1,kev2,kev3,kev4,notusable,kev5,kev6
+	print *, IDAY,MON,IYEAR,IHOUR,MIN,ISEC,day,lat,long,
+     _		kev1,kev2,kev3,kev4,kev5,kev6
+
+        L=L+1
+	write (2,*) DAY,lat,long,kev1,kev2,kev3,kev4,kev5,kev6
+	end do
+
+35    print *, 'error L=', L
+	stop 1
+34    print *, 'End of file L=', L
+
+	end program
+</example>
+
+** Исходные данные
+<example>
+12-08-2002 00:00:00.000 224.000 -45.5800 82.6313 426.750
+  0.0312500 0.0156250 0.0156250 0.218750 104.750 0.468750 0.00000
+12-08-2002 00:01:00.000 224.001 -48.9957 81.1686 434.214
+  0.285714 0.0178570 0.0178570 0.339286 111.429 1.67857 0.00000
+</example>
+
+** Обработаныне даныне
+<example>
+ 224.0 -45.58 82.6313 0.03125 0.015625 0.015625 0.21875 0.46875 0.0E+0
+ 224.001 -48.9957 81.1686 0.285714 0.017857 0.017857 0.339286 1.67857 0.0E+0
+ 224.001 -52.3988 79.5212 13.9219 0.453125 0.015625 0.3125 1.90625 0.0E+0
+</example>
+
+<example>
+</example>
+
+; TODO: 
