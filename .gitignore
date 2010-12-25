@@ -1,5 +1,6 @@
 *~
 *.o
+*.pyc
 test/t89
 test/t89.exe
 task_1.1/task_1.1
