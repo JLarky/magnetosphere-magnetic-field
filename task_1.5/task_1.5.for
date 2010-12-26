@@ -3,7 +3,9 @@
 	CHARACTER(100) :: filename
 
 	filename = '../data/NOAA14_MEPED1MIN.dat'
-c	filename = '../data/NOAA14_MEPED1MIN_21.10.2001.dat'
+c	filename = '../data/NOAA14_MEPED1MIN_21-10-2001.dat'
+c	filename = '../data/NOAA14_MEPED1MIN_11-08-2000.dat'
+c	filename = '../data/NOAA14_MEPED1MIN_01-10-2002.dat'
         open (unit=1, file=filename,status='OLD')
         open (unit=2, file='data.dat')
 
