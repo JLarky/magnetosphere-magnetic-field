@@ -14,8 +14,8 @@ def plotone(x,y,z):
     z = np.maximum( z, 0.001 )
     z = np.minimum( z, 40 )
 
-    xi = linspace(0,360,100)
-    yi = linspace(-90,90,100)
+    xi = linspace(-180,180, 200)
+    yi = linspace(-90,90, 100)
 #zi = griddata((x, y), z, (xi[None,:], yi[:,None]), method='cubic')
     zi = griddata(x, y, z, xi, yi)
 
@@ -24,8 +24,8 @@ def plotone(x,y,z):
     if True:
         CS = plt.contour(xi,yi,zi,15,linewidths=0.5,colors='k')
         CS = plt.contourf(xi,yi,zi,15,cmap=plt.cm.jet)
-        plt.xlim(0,360)
-        plt.ylim(-90,90)
+        plt.xlim(np.min(xi),np.max(xi))
+        plt.ylim(np.min(yi),np.max(yi))
         plt.colorbar() # draw colorbar
     #plt.scatter(x,y,marker='o',c='b',s=5)
     else:

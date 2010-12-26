@@ -13,6 +13,9 @@
      _		kev1,kev2,kev3,kev4,kev5,kev6
 
         L=L+1
+	if (long.gt.180) then
+	   long = long - 360
+	end if
 	write (2,*) DAY,lat,long,kev1,kev2,kev3,kev4,kev5,kev6
 	end do
 
