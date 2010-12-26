@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plotone(x,y,z):
-    z = np.maximum( z, 0.001); z = np.minimum( z, 40 );
+    z = np.maximum( z, 0.001); z = np.minimum( z, 60 );
 
     xi = np.linspace(-180,180, 200)
     yi = np.linspace(-90,90, 100)

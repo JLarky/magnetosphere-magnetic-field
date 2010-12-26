@@ -1,7 +1,10 @@
 	program task5
 	real::lat,long,day,kev1,kev2,kev3,kev4,kev5,kev6
+	CHARACTER(100) :: filename
 
-        open (unit=1, file='../data/NOAA14_MEPED1MIN.dat',status='OLD')
+	filename = '../data/NOAA14_MEPED1MIN.dat'
+c	filename = '../data/NOAA14_MEPED1MIN_21.10.2001.dat'
+        open (unit=1, file=filename,status='OLD')
         open (unit=2, file='data.dat')
 
 	L=0;

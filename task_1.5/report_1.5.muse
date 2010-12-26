@@ -118,8 +118,11 @@ plt.savefig("energies.png")
 
 ** Полученный результат
 
-[[energies.png]]
-
+<literal>\newpage</literal>
+[[energies_12-08-2002.png]]
+<literal>\newpage</literal>
+[[energies_21-10-2001.png]]
+<literal>\newpage</literal>
 ** Вывод
 
 ???
