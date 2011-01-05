@@ -116,19 +116,48 @@ plt.title('>300KEV_ELEC(0_DG)')
 plt.savefig("energies.png")
 </example>
 
-** Полученный результат
-
-<literal>\newpage</literal>
-[[energies_12-08-2002.png][12-08-2002]]
-<literal>\newpage</literal>
-[[energies_21-10-2001.png][21-10-2001]]
-<literal>\newpage</literal>
-[[energies_01-10-2002.png][01-10-2002]]
-<literal>\newpage</literal>
-[[energies_11-08-2000.png][11-08-2000]]
-
 ** Вывод
 
-???
+Карта магнитного поля Земли находится в хорошем согласии с картами
+высыпаний (Бразильская аномалия видна явна, но приполярные зоны в
+карте отсутствуют).
+Особо зависимой от магнитных бурь зоной является полярная зона. Хотя
+зона Бразильской аномалии так же зависит от магнитных бурь
+(увеличивается площадь).
+Особо опасной с точки зрения радиационной безопасности является зона
+Бразильской аномалии. Приполюсная зона так же является опасной,
+особенно во время магнитных бурь.
+
+[[field_map.png][Величина поля]]
+[[field_diff.png][Разность поля в сопряженных точках]]
+
+<literal>
+\newpage\begin{figure}[htb]
+\begin{center}\leavevmode
+\includegraphics[width=1.1\textwidth]{energies_12-08-2002.png}
+\end{center}\caption{12-08-2002}
+\end{figure}</literal>
+
+<literal>
+\newpage\begin{figure}[htb]
+\begin{center}\leavevmode
+\includegraphics[width=1.1\textwidth]{energies_21-10-2001.png}
+\end{center}\caption{21-10-2001}
+\end{figure}</literal>
+
+<literal>
+\newpage\begin{figure}[htb]
+\begin{center}\leavevmode
+\includegraphics[width=1.1\textwidth]{energies_01-10-2002.png}
+\end{center}\caption{01-10-2002}
+\end{figure}</literal>
+
+<literal>
+\newpage\begin{figure}[htb]
+\begin{center}\leavevmode
+\includegraphics[width=1.1\textwidth]{energies_11-08-2000.png}
+\end{center}\caption{11-08-2000}
+\end{figure}</literal>
+
 
 ; TODO: 
