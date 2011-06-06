@@ -1,0 +1,1 @@
+f90 task_1.8.for -o task_1.8 && ./task_1.8
