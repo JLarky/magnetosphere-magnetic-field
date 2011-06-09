@@ -1,0 +1,11 @@
+1. решение 3 задачи Вани.
+
+2. в 4 добавить код:
+     call igrf_gsM(xgsm,ygsm,zgsm,bxgsm,bygsm,bzgsm)
+     call geomag(xgeo,ygeo,zgeo,xmag,ymag,zmag,1.0) ! это не надо
+     b1=sqrt((bxgsm)**2+(bygsm)**2+(bzgsm)**2)
+     if (zmag .GT. 0) then! это не надо
+       dir=1.0
+       else 
+       dir=-1.0
+     end if
