@@ -3,7 +3,7 @@
 	CHARACTER(100) :: filename
 
 	filename = 'NOAA14_MEPED1MIN_05-07-2011.dat'
-	filename = 'NOAA14_MEPED1MIN_08-07-2011.dat'
+!	filename = 'NOAA14_MEPED1MIN_08-07-2011.dat'
         open (unit=1, file=filename,status='OLD')
         open (unit=2, file='data.dat')
 
